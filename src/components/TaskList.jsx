@@ -1,11 +1,16 @@
-import React from 'react'
+
 import Task from './Task'
 
-function TaskList({ tasks, removeTask, toggleTaskComleted }) {
+import { useContext } from 'react'
+import { TasksContext } from '../hoc/TasksProvider'
+
+function TaskList() {
+  const { tasks } = useContext(TasksContext);
+
   return (
     <ul>
       {
-        tasks.map(task => <Task key={task.id} task={task} removeTask={removeTask} toggleTaskComleted={toggleTaskComleted} />)
+        tasks && tasks.map(task => (<Task key={task.id} task={task} />))
       }
     </ul>
   )

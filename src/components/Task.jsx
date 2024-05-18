@@ -1,6 +1,10 @@
 import React from 'react'
+import { useContext } from 'react'
+import { TasksContext } from '../hoc/TasksProvider'
 
-function Task({ task, removeTask, toggleTaskComleted }) {
+function Task({ task }) {
+  const { removeTask, toggleTaskComleted } = useContext(TasksContext);
+
   return (
     <li>
       <input
